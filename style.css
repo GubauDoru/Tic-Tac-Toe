@@ -1,0 +1,29 @@
+.buttons {
+	height: 30px;
+	width: 30px;
+	background-color: white;
+	padding: 0;
+	margin: 0;
+}
+
+.buttons:disabled {
+	color: black;
+	padding: 0;
+	margin: 0;
+}
+
+.buttons:active {
+	padding: 0;
+	margin: 0;
+	overflow-y: auto;
+}
+
+.tableField {
+	width: 100px;
+	display: table;
+}
+
+.turnParagraph {
+	display: inline-flex;
+	text-align: center;
+}

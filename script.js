@@ -21,7 +21,7 @@ function startGame(buttonId) {
 }
 
 function checkGame() {
-	let onOff = 0;
+	let winner = 'N';
 	const winPossibilities = [
 		['1','2','3'],
 		['4','5','6'],
@@ -42,23 +42,29 @@ function checkGame() {
 				++verifyWin0;
 			}
 			if(verifyWinX === 3) {
-				const winParagraph = document.getElementById('winLoseParagraph');
-				winParagraph.textContent = 'Player X WON';
-				onOff = 1;
-				blockButtons();
-				
+				winner = 'X';
 			}else if(verifyWin0 === 3) {
-				const loseParagraph = document.getElementById('winLoseParagraph');
-				loseParagraph.textContent = 'Player O WON';
-				onOff = 1;
-				blockButtons();
-				
-			}else if(round === 10 && c === 7 && l === 2 && onOff === 0) {
-				const tieParagraph = document.getElementById('winLoseParagraph');
-				tieParagraph.textContent = 'TIE!';
+				winner = 'O';
+			}else if(round === 10 && c === 7 && l === 2) {
+				winner = 'TIE';
 			}
 		}
+	}
+	if(winner != 'N') {
+		showGameWinner(winner);
+	}
+}
 
+function showGameWinner(userIndex) {
+	const winLoseParagraph = document.getElementById('winLoseParagraph');
+	if(userIndex === 'X') {
+		winLoseParagraph.textContent = 'Player X WON';
+		blockButtons();
+	} else if(userIndex === 'O') {
+		winLoseParagraph.textContent = 'Player O WON';
+		blockButtons();
+	} else if(userIndex === 'TIE') {
+		winLoseParagraph.textContent = 'TIE!';
 	}
 }
 
